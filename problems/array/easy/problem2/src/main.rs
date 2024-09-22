@@ -84,9 +84,14 @@ pub fn remove_duplicates_3(nums: &mut Vec<i32>) -> i32 {
     nums.len() as i32;
 }
 
-// Approach 4 - Using HashMap
+// Approach 4 - Using HashSet
 // Complexity - O(n)
-pub fn remove_duplicates_4(nums: &mut Vec<i32>) -> i32 {
+use std::collections::HashSet;
 
+pub fn remove_duplicates_4(nums: &mut Vec<i32>) -> i32 {
+    let mut set = HashSet::new();
+    nums.retain(|&x| set.insert(x));
+
+    nums.len() as i32
 }
 
